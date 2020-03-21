@@ -108,8 +108,6 @@ final class UserViewModel: ObservableObject {
                     return "Password is empty"
                 case .noMatch:
                     return "Password don't match"
-                case .notStrongEnough:
-                    return "Password not strong enough"
                 }
         }
         .assign(to: \.passwordMessage, on: self)
@@ -128,7 +126,6 @@ extension UserViewModel {
         case valid
         case empty
         case noMatch
-        case notStrongEnough
     }
     
     private enum PasswordLevel: String {
