@@ -70,7 +70,6 @@ final class UserViewModel: ObservableObject {
             .map { isEmpty, areEquals, isStrongEnough in
                 if isEmpty { return .empty }
                 if !areEquals { return .noMatch }
-                if !isStrongEnough { return .notStrongEnough }
                 return .valid
         }
         .eraseToAnyPublisher()
