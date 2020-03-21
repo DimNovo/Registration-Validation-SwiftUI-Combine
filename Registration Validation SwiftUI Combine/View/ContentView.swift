@@ -31,7 +31,7 @@ struct ContentView: View {
                             .font(userVM.passwordMessage != "" ? .caption : .headline)
                             .foregroundColor(userVM.passwordMessage != "" ? .red : .green)
                         Spacer()
-                        Text(userVM.passwordMessage == "Password is empty" ? "" : userVM.passwordLevelMessage)
+                        Text(userVM.password.isEmpty ? "" : userVM.passwordLevelMessage)
                             .foregroundColor(userVM.passwordLevelColor)
                             .font(.custom("Courier", size: 15))
                     }) {
@@ -46,7 +46,7 @@ struct ContentView: View {
                                 .foregroundColor(userVM.passwordMessage != "" ? .red : .green)
                                 .opacity(0.4)
                             SecureField("password again", text: $userVM.passwordAgain)
-                                .disabled(userVM.passwordMessage == "Password is empty")
+                                .disabled(userVM.password.isEmpty)
                         }
                     }
                 }
