@@ -31,7 +31,7 @@ struct ContentView: View {
                             .font(userVM.passwordMessage != "" ? .caption : .headline)
                             .foregroundColor(userVM.passwordMessage != "" ? .red : .green)
                         Spacer()
-                        Text(userVM.passwordMessage == "Password is empty" ? "" : userVM.passwordLevelMerssage)
+                        Text(userVM.passwordMessage == "Password is empty" ? "" : userVM.passwordLevelMessage)
                             .foregroundColor(userVM.passwordLevelColor)
                             .font(.custom("Courier", size: 15))
                     }) {

@@ -19,7 +19,7 @@ final class UserViewModel: ObservableObject {
     
     @Published var usernameMessage = ""
     @Published var passwordMessage = ""
-    @Published var passwordLevelMerssage = ""
+    @Published var passwordLevelMessage = ""
     @Published var passwordLevelColor: Color = .red
     @Published var isValid = false
     
@@ -53,11 +53,11 @@ final class UserViewModel: ObservableObject {
             .map {
                 switch $0 {
                 case .reasonable, .strong, .veryStrong:
-                    self.passwordLevelMerssage = $0.rawValue
+                    self.passwordLevelMessage = $0.rawValue
                     self.passwordLevelColor = $0.color
                     return true
                 case .weak:
-                    self.passwordLevelMerssage = $0.rawValue
+                    self.passwordLevelMessage = $0.rawValue
                     self.passwordLevelColor = $0.color
                     return false
                 }
