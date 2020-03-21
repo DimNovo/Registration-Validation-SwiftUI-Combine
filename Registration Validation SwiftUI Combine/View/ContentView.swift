@@ -14,21 +14,21 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 Form {
-                    Section(header: Text(userVM.usernameMessage != "" ?
+                    Section(header: Text(!userVM.usernameMessage.isEmpty ?
                         userVM.usernameMessage : "User name")
-                        .font(userVM.usernameMessage != "" ? .caption : .headline)
+                        .font(!userVM.usernameMessage.isEmpty ? .caption : .headline)
                         .foregroundColor(userVM.usernameMessage != "" ? .red : .blue)) {
                             HStack {
                                 Image(systemName: "person.fill")
-                                    .foregroundColor(userVM.usernameMessage != "" ? .red : .blue)
+                                    .foregroundColor(!userVM.usernameMessage.isEmpty ? .red : .blue)
                                     .opacity(0.5)
                                 TextField("user name", text: $userVM.username)
                             }
                     }
                     Section(header: HStack {
-                        Text(userVM.passwordMessage != "" ?
+                        Text(!userVM.passwordMessage.isEmpty ?
                             userVM.passwordMessage :"Password")
-                            .font(userVM.passwordMessage != "" ? .caption : .headline)
+                            .font(!userVM.passwordMessage.isEmpty ? .caption : .headline)
                             .foregroundColor(userVM.passwordMessage != "" ? .red : .green)
                         Spacer()
                         Text(userVM.password.isEmpty ? "" : userVM.passwordLevelMessage)
@@ -37,13 +37,13 @@ struct ContentView: View {
                     }) {
                         HStack {
                             Image(systemName: "lock.shield")
-                                .foregroundColor(userVM.passwordMessage != "" ? .red : .green)
+                                .foregroundColor(!userVM.passwordMessage.isEmpty ? .red : .green)
                                 .opacity(0.4)
                             SecureField("password", text: $userVM.password)
                         }
                         HStack {
                             Image(systemName: "lock.shield")
-                                .foregroundColor(userVM.passwordMessage != "" ? .red : .green)
+                                .foregroundColor(!userVM.passwordMessage.isEmpty ? .red : .green)
                                 .opacity(0.4)
                             SecureField("password again", text: $userVM.passwordAgain)
                                 .disabled(userVM.password.isEmpty)
