@@ -46,6 +46,7 @@ struct ContentView: View {
                                 .foregroundColor(userVM.passwordMessage != "" ? .red : .green)
                                 .opacity(0.4)
                             SecureField("password again", text: $userVM.passwordAgain)
+                                .disabled(userVM.passwordMessage == "Password is empty")
                         }
                     }
                 }
